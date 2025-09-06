@@ -4,7 +4,7 @@
 > 
 > **`[WARN]`** `SYSTEM_CLOCK_UNSTABLE. Displaying last known sync time.`
 > 
-> **`[STATUS]`** `Last Sync: <!--START_SECTION:last_updated-->${new Date().toUTCString()}<!--END_SECTION:last_updated-->`
+> **`[STATUS]`** `Last Sync: <!--START_SECTION:last_updated-->2025-09-06T17:40:51+00:00<!--END_SECTION:last_updated-->`
 
 ---
 #### `> cat /var/log/recent_activity.log`
