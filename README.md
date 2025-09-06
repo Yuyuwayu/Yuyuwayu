@@ -12,20 +12,22 @@
 `cat: Displaying last 5 activities from source [github_commit_stream]`
 
 ```log
+<!--START_SECTION:activity_log-->
+<!--END_SECTION:activity_log-->
 
-> yuyuwayu --version | grep 'stable'
-> no stable version found
 ```
 
+> `> yuyuwayu --version | grep 'stable'`
+> 
+> `no stable version found`
 ```yaml
 name: yuyuwayu (infected)
 title: H̸o̴s̷t̸
 status: Compromised
 ```
-```log
-> antivirus.exe scan /skills
-antivirus.exe: Access to /skills denied.
-```
+> `> antivirus.exe scan /skills`
+> 
+> `antivirus.exe: Access to /skills denied.`
 ```bash
 -rwx-??--? 1 [unknown] [unknown] 🧠 ml-and-deep-learning.py.QUARANTINED
 -rwx-??--? 1 [unknown] [unknown] 🟢 vue-is-a-lie.js
