@@ -1,10 +1,10 @@
-### [yuy̷uW̴ΛY̴u.log] - INITIATING_REAL-TIME_SYNC
 
-> [INFO] Establishing connection to GitHub API...
+### `[yuy̷uW̴ΛY̴u.log] - INITIATING_REAL-TIME_SYNC`
+> **`[INFO]`** `Establishing connection to GitHub API...`
 > 
-> [WARN] SYSTEM_CLOCK_UNSTABLE. Displaying last known sync time.
+> **`[WARN]`** `SYSTEM_CLOCK_UNSTABLE. Displaying last known sync time.`
 > 
-> [STATUS] Last Sync: <!--START_SECTION:last_updated-->${new Date().toUTCString()}<!--END_SECTION:last_updated-->
+> **`[STATUS]`** `Last Sync: ${new Date().toUTCString()}`
 
 ---
 #### `> cat /var/log/recent_activity.log`
