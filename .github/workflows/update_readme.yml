@@ -10,6 +10,9 @@ on:
 jobs:
   update-readme:
     runs-on: ubuntu-latest
+    # BARIS PENTING DITAMBAHKAN DI SINI UNTUK MEMBERI IZIN MENULIS
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v3
 
@@ -23,7 +26,7 @@ jobs:
           # Tentukan penanda di README untuk bagian log aktivitas
           comment_tag_name: "activity_log"
           
-          # Template untuk setiap baris log (nama parameter sudah diubah)
+          # Template untuk setiap baris log
           template: '[TIMESTAMP] COMMIT: $title'
           
           # Jumlah item maksimum yang ditampilkan
@@ -32,7 +35,7 @@ jobs:
           # Teks yang ditampilkan jika feed kosong
           commit_message: "docs: Update recent activity log"
           
-          # Nama file README yang akan diupdate (nama parameter sudah diubah)
+          # Nama file README yang akan diupdate
           readme_path: 'README.md'
 
       # Langkah untuk memperbarui timestamp
