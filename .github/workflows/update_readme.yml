@@ -10,7 +10,6 @@ on:
 jobs:
   update-readme:
     runs-on: ubuntu-latest
-    # BARIS PENTING DITAMBAHKAN DI SINI UNTUK MEMBERI IZIN MENULIS
     permissions:
       contents: write
     steps:
@@ -19,8 +18,7 @@ jobs:
       # Langkah untuk mengambil aktivitas GitHub dan memperbarui log
       - uses: gautamkrishnar/blog-post-workflow@v1
         with:
-          # URL feed yang akan dibaca. Di sini kita menggunakan feed commit GitHub Anda.
-          # JANGAN LUPA GANTI "yuyuwayu" DENGAN USERNAME GITHUB ANDA!
+          # URL feed yang akan dibaca. GANTI "yuyuwayu" DENGAN USERNAME ANDA!
           feed_list: "https://github.com/yuyuwayu.atom"
           
           # Tentukan penanda di README untuk bagian log aktivitas
@@ -29,13 +27,13 @@ jobs:
           # Template untuk setiap baris log
           template: '[TIMESTAMP] COMMIT: $title'
           
-          # TAMBAHKAN BARIS INI UNTUK MEMPERBAIKI TAMPILAN
+          # Memberi baris baru agar tampilan rapi
           tag_post_pre_newline: true
           
           # Jumlah item maksimum yang ditampilkan
           max_post_count: 5
           
-          # Teks yang ditampilkan jika feed kosong
+          # Pesan commit
           commit_message: "docs: Update recent activity log"
           
           # Nama file README yang akan diupdate
@@ -44,8 +42,7 @@ jobs:
       # Langkah untuk memperbarui timestamp
       - name: Update Timestamp
         run: |
-          # Perintah ini masih benar dan tidak perlu diubah
-          sed -i 's|<!--START_SECTION:last_updated-->.*<!--END_SECTION:last_updated-->|<!--START_SECTION:last_updated-->'"$(date -u --iso-8601=seconds)"'<!--END_SECTION:last_updated-->|' README.md
+          sed -i 's|.*|'"$(date -u --iso-8601=seconds)"'|' README.md
 
       # Langkah untuk menyimpan perubahan ke repositori
       - name: Commit changes
@@ -53,4 +50,3 @@ jobs:
         with:
           commit_message: "ci: auto-update readme"
           file_pattern: 'README.md'
-
