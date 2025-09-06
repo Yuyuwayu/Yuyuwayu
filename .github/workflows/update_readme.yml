@@ -23,8 +23,8 @@ jobs:
           # Tentukan penanda di README untuk bagian log aktivitas
           comment_tag_name: "activity_log"
           
-          # Template untuk setiap baris log
-          feed_item_template: '[TIMESTAMP] COMMIT: $title'
+          # Template untuk setiap baris log (nama parameter sudah diubah)
+          template: '[TIMESTAMP] COMMIT: $title'
           
           # Jumlah item maksimum yang ditampilkan
           max_post_count: 5
@@ -32,15 +32,14 @@ jobs:
           # Teks yang ditampilkan jika feed kosong
           commit_message: "docs: Update recent activity log"
           
-          # Nama file README yang akan diupdate
-          readme_file: 'README.md'
+          # Nama file README yang akan diupdate (nama parameter sudah diubah)
+          readme_path: 'README.md'
 
       # Langkah untuk memperbarui timestamp
       - name: Update Timestamp
         run: |
-          # Cari dan ganti konten di antara penanda timestamp dengan waktu saat ini
-          # Teks di dalam sed harus sama persis dengan yang ada di README
-          sed -i 's|.*|'"$(date -u --iso-8601=seconds)"'|' README.md
+          # Perintah ini masih benar dan tidak perlu diubah
+          sed -i 's|<!--START_SECTION:last_updated-->.*<!--END_SECTION:last_updated-->|<!--START_SECTION:last_updated-->'"$(date -u --iso-8601=seconds)"'<!--END_SECTION:last_updated-->|' README.md
 
       # Langkah untuk menyimpan perubahan ke repositori
       - name: Commit changes
@@ -48,3 +47,4 @@ jobs:
         with:
           commit_message: "ci: auto-update readme"
           file_pattern: 'README.md'
+
