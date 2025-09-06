@@ -4,7 +4,7 @@
 > 
 > **`[WARN]`** `SYSTEM_CLOCK_UNSTABLE. Displaying last known sync time.`
 > 
-> **`[STATUS]`** `Last Sync: ${new Date().toUTCString()}`
+> **`[STATUS]`** `Last Sync: <!--START_SECTION:last_updated-->${new Date().toUTCString()}<!--END_SECTION:last_updated-->`
 
 ---
 #### `> cat /var/log/recent_activity.log`
@@ -12,8 +12,8 @@
 `cat: Displaying last 5 activities from source [github_commit_stream]`
 
 ```log
-<!--START_SECTION:activity_log-->
-<!--END_SECTION:activity_log-->
+<!-- activity_log:START -->
+<!-- activity_log:END -->
 
 ```
 
