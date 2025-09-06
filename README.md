@@ -12,8 +12,7 @@
 `cat: Displaying last 5 activities from source [github_commit_stream]`
 
 <!-- activity_log:START -->
-```log
-```
+[TIMESTAMP] COMMIT: Yuyuwayu pushed Yuyuwayu[TIMESTAMP] COMMIT: Yuyuwayu pushed Yuyuwayu[TIMESTAMP] COMMIT: Yuyuwayu pushed Yuyuwayu[TIMESTAMP] COMMIT: Yuyuwayu pushed Yuyuwayu[TIMESTAMP] COMMIT: Yuyuwayu pushed Yuyuwayu
 <!-- activity_log:END -->
 
 
