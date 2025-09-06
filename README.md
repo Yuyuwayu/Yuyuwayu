@@ -35,5 +35,5 @@ status: Compromised
 -rwx-??--? 1 [unknown] [unknown] 🔥 all-your-data-are-belong-to.us
 ```
 ---
-[MESSAGE_FROM_PAYLOAD]
-Your system now belongs to us.
+`[MESSAGE_FROM_PAYLOAD]`
+`Your system now belongs to us.`
