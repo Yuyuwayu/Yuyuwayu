@@ -9,9 +9,8 @@
 ---
 #### `> cat /var/log/recent_activity.log`
 `cat: Displaying last 5 activities from source [github_commit_stream]`
-```log
-
-```
+<!-- activity_log:START -->
+<!-- activity_log:END -->
 
 > `> yuyuwayu --version | grep 'stable'`
 > 
