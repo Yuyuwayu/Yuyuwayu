@@ -29,6 +29,9 @@ jobs:
           # Template untuk setiap baris log
           template: '[TIMESTAMP] COMMIT: $title'
           
+          # TAMBAHKAN BARIS INI UNTUK MEMPERBAIKI TAMPILAN
+          tag_post_pre_newline: true
+          
           # Jumlah item maksimum yang ditampilkan
           max_post_count: 5
           
