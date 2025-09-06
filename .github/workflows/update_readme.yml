@@ -1,0 +1,50 @@
+name: Update README with Real-time Activity
+
+on:
+  schedule:
+    # Jalankan setiap jam
+    - cron: '0 * * * *'
+  workflow_dispatch:
+    # Tombol untuk menjalankan manual jika dibutuhkan
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      # Langkah untuk mengambil aktivitas GitHub dan memperbarui log
+      - uses: gautamkrishnar/blog-post-workflow@v1
+        with:
+          # URL feed yang akan dibaca. Di sini kita menggunakan feed commit GitHub Anda.
+          # JANGAN LUPA GANTI "yuyuwayu" DENGAN USERNAME GITHUB ANDA!
+          feed_list: "https://github.com/yuyuwayu.atom"
+          
+          # Tentukan penanda di README untuk bagian log aktivitas
+          comment_tag_name: "activity_log"
+          
+          # Template untuk setiap baris log
+          feed_item_template: '[TIMESTAMP] COMMIT: $title'
+          
+          # Jumlah item maksimum yang ditampilkan
+          max_post_count: 5
+          
+          # Teks yang ditampilkan jika feed kosong
+          commit_message: "docs: Update recent activity log"
+          
+          # Nama file README yang akan diupdate
+          readme_file: 'README.md'
+
+      # Langkah untuk memperbarui timestamp
+      - name: Update Timestamp
+        run: |
+          # Cari dan ganti konten di antara penanda timestamp dengan waktu saat ini
+          # Teks di dalam sed harus sama persis dengan yang ada di README
+          sed -i 's|.*|'"$(date -u --iso-8601=seconds)"'|' README.md
+
+      # Langkah untuk menyimpan perubahan ke repositori
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "ci: auto-update readme"
+          file_pattern: 'README.md'
