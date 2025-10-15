@@ -4,9 +4,8 @@
 
 <p align="center">
   <em>
-  ada langkah-langkah kecil  
-  yang tak tercatat di podium,  
-  namun mengguncang sunyi dunia.  
+  Sejarah tidak ditulis oleh mereka yang di podium, 
+    tapi oleh kaki yang menolak berhenti walau ribuan kali terjatuh.
   </em>
 </p>
 
