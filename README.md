@@ -1,6 +1,6 @@
 <h3 align="center">☁️</h3>
 
-<h1 align="center">yuyuyuwu</h1>
+<h1 align="center">yuyuwayu</h1>
 
 <p align="center">
   <em>
