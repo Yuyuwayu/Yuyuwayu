@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>yuyuyuwu</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&display=swap');
+
+    body {
+      margin: 0;
+      height: 100vh;
+      background: radial-gradient(circle at center, #0a0a0a 0%, #000 80%);
+      overflow: hidden;
+      color: #d0d0d0;
+      font-family: 'EB Garamond', serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    /* Efek bintang */
+    .stars {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: transparent url('https://raw.githubusercontent.com/Yuyuyuwu/assets/main/stars.png') repeat;
+      animation: moveStars 200s linear infinite;
+      opacity: 0.15;
+      z-index: 0;
+    }
+
+    @keyframes moveStars {
+      from { background-position: 0 0; }
+      to { background-position: -2000px 2000px; }
+    }
+
+    /* Teks puitis */
+    h1 {
+      font-size: 2.8em;
+      color: #baf8ff;
+      letter-spacing: 3px;
+      margin-bottom: 25px;
+      text-shadow: 0 0 10px #33ffee, 0 0 25px #33ffee;
+      animation: fadeIn 3s ease forwards;
+      z-index: 2;
+    }
+
+    p {
+      font-size: 1.1em;
+      max-width: 600px;
+      line-height: 1.7;
+      opacity: 0;
+      margin: 10px 0;
+      animation: fadeIn 3s ease forwards;
+      animation-delay: 2s;
+      z-index: 2;
+    }
+
+    em { color: #b9b9b9; }
+
+    hr {
+      width: 40%;
+      margin: 30px auto;
+      border: none;
+      border-top: 1px solid #333;
+      opacity: 0;
+      animation: fadeIn 3s ease forwards;
+      animation-delay: 3s;
+      z-index: 2;
+    }
+
+    a {
+      color: #66faff;
+      text-decoration: none;
+      margin: 0 10px;
+      opacity: 0;
+      transition: 0.3s;
+      animation: fadeIn 3s ease forwards;
+      animation-delay: 4s;
+      z-index: 2;
+    }
+
+    a:hover {
+      text-shadow: 0 0 8px #33ffee;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Efek kabut ringan */
+    .fog {
+      position: fixed;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.05), transparent 70%);
+      animation: fogMove 60s ease-in-out infinite;
+      opacity: 0.2;
+      z-index: 1;
+    }
+
+    @keyframes fogMove {
+      0% { transform: translate(-10%, -10%) scale(1.2); }
+      50% { transform: translate(10%, 10%) scale(1.3); }
+      100% { transform: translate(-10%, -10%) scale(1.2); }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="stars"></div>
+  <div class="fog"></div>
+
+  <h1>yuyuyuwu</h1>
+
+  <p><em>ada langkah-langkah kecil<br>
+  yang tak tercatat di podium,<br>
+  namun mengguncang sunyi dunia.</em></p>
+
+  <p>karena tak semua juara mengenakan mahkota —<br>
+  sebagian hanya terus berjalan,<br>
+  hingga bumi mengingat namanya.</p>
+
+  <hr>
+
+  <p>kode hanyalah bahasa lain dari doa.<br>
+  dan setiap bug, adalah cara semesta menjawabnya.</p>
+
+  <p>
+    <a href="#">GitHub</a> • 
+    <a href="#">Twitter</a> • 
+    <a href="#">Discord</a>
+  </p>
+</body>
+</html>
