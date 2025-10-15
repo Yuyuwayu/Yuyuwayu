@@ -5,23 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>yuyuyuwu</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Fira+Code:wght@400&display=swap');
 
     body {
       margin: 0;
       height: 100vh;
-      background: radial-gradient(circle at center, #0a0a0a 0%, #000 80%);
-      overflow: hidden;
+      background: radial-gradient(circle at center, #0a0a0a 0%, #000 85%);
       color: #d0d0d0;
+      overflow: hidden;
       font-family: 'EB Garamond', serif;
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
       text-align: center;
+      letter-spacing: 1px;
     }
 
-    /* Efek bintang */
+    /* Bintang */
     .stars {
       position: fixed;
       width: 100%;
@@ -31,68 +32,12 @@
       opacity: 0.15;
       z-index: 0;
     }
-
     @keyframes moveStars {
       from { background-position: 0 0; }
       to { background-position: -2000px 2000px; }
     }
 
-    /* Teks puitis */
-    h1 {
-      font-size: 2.8em;
-      color: #baf8ff;
-      letter-spacing: 3px;
-      margin-bottom: 25px;
-      text-shadow: 0 0 10px #33ffee, 0 0 25px #33ffee;
-      animation: fadeIn 3s ease forwards;
-      z-index: 2;
-    }
-
-    p {
-      font-size: 1.1em;
-      max-width: 600px;
-      line-height: 1.7;
-      opacity: 0;
-      margin: 10px 0;
-      animation: fadeIn 3s ease forwards;
-      animation-delay: 2s;
-      z-index: 2;
-    }
-
-    em { color: #b9b9b9; }
-
-    hr {
-      width: 40%;
-      margin: 30px auto;
-      border: none;
-      border-top: 1px solid #333;
-      opacity: 0;
-      animation: fadeIn 3s ease forwards;
-      animation-delay: 3s;
-      z-index: 2;
-    }
-
-    a {
-      color: #66faff;
-      text-decoration: none;
-      margin: 0 10px;
-      opacity: 0;
-      transition: 0.3s;
-      animation: fadeIn 3s ease forwards;
-      animation-delay: 4s;
-      z-index: 2;
-    }
-
-    a:hover {
-      text-shadow: 0 0 8px #33ffee;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(15px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Efek kabut ringan */
+    /* Kabut lembut */
     .fog {
       position: fixed;
       width: 200%;
@@ -102,11 +47,68 @@
       opacity: 0.2;
       z-index: 1;
     }
-
     @keyframes fogMove {
       0% { transform: translate(-10%, -10%) scale(1.2); }
       50% { transform: translate(10%, 10%) scale(1.3); }
       100% { transform: translate(-10%, -10%) scale(1.2); }
+    }
+
+    /* Kursor bercahaya */
+    .cursor {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #33ffee, transparent);
+      position: fixed;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      mix-blend-mode: screen;
+      z-index: 3;
+      transition: transform 0.05s linear;
+    }
+
+    /* Heading */
+    h1 {
+      color: #baf8ff;
+      font-size: 2.6em;
+      font-family: 'Fira Code', monospace;
+      text-shadow: 0 0 10px #33ffee, 0 0 25px #33ffee;
+      margin-bottom: 30px;
+      z-index: 2;
+    }
+
+    /* Teks puitis */
+    .poem {
+      max-width: 600px;
+      font-size: 1.1em;
+      line-height: 1.7;
+      margin: 10px 0;
+      opacity: 0;
+      z-index: 2;
+    }
+
+    hr {
+      width: 40%;
+      margin: 40px auto;
+      border: none;
+      border-top: 1px solid #333;
+      opacity: 0;
+      animation: fadeIn 2s ease forwards;
+      animation-delay: 5s;
+    }
+
+    a {
+      color: #66faff;
+      text-decoration: none;
+      margin: 0 10px;
+      opacity: 0;
+      transition: 0.3s;
+    }
+    a:hover { text-shadow: 0 0 8px #33ffee; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
   </style>
@@ -114,26 +116,60 @@
 <body>
   <div class="stars"></div>
   <div class="fog"></div>
+  <div class="cursor" id="cursor"></div>
 
   <h1>yuyuyuwu</h1>
 
-  <p><em>ada langkah-langkah kecil<br>
-  yang tak tercatat di podium,<br>
-  namun mengguncang sunyi dunia.</em></p>
-
-  <p>karena tak semua juara mengenakan mahkota —<br>
-  sebagian hanya terus berjalan,<br>
-  hingga bumi mengingat namanya.</p>
+  <div class="poem" id="poem"></div>
 
   <hr>
-
-  <p>kode hanyalah bahasa lain dari doa.<br>
-  dan setiap bug, adalah cara semesta menjawabnya.</p>
-
-  <p>
+  <p style="opacity:0; animation: fadeIn 3s ease forwards; animation-delay: 8s;">
     <a href="#">GitHub</a> • 
     <a href="#">Twitter</a> • 
     <a href="#">Discord</a>
   </p>
+
+  <script>
+    // Efek mengetik
+    const poemLines = [
+      "ada langkah-langkah kecil",
+      "yang tak tercatat di podium,",
+      "namun mengguncang sunyi dunia.",
+      "",
+      "karena tak semua juara mengenakan mahkota —",
+      "sebagian hanya terus berjalan,",
+      "hingga bumi mengingat namanya.",
+      "",
+      "kode hanyalah bahasa lain dari doa.",
+      "dan setiap bug, adalah cara semesta menjawabnya."
+    ];
+
+    const poemEl = document.getElementById('poem');
+    let delay = 0;
+
+    poemLines.forEach((line, i) => {
+      const p = document.createElement('p');
+      p.style.whiteSpace = 'pre';
+      poemEl.appendChild(p);
+      setTimeout(() => typeLine(p, line), delay);
+      delay += line.length * 60 + 400; // durasi ngetik
+    });
+
+    function typeLine(element, text) {
+      let index = 0;
+      element.style.opacity = 1;
+      const interval = setInterval(() => {
+        element.textContent += text[index];
+        index++;
+        if (index >= text.length) clearInterval(interval);
+      }, 60);
+    }
+
+    // Efek kursor bercahaya
+    const cursor = document.getElementById('cursor');
+    document.addEventListener('mousemove', e => {
+      cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+    });
+  </script>
 </body>
 </html>
